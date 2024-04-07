@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{layout::head}">
+    <meta charset="UTF-8">
+    <title>Mantenimiento Cliente</title>
+
+</head>
+
+<body>
+<script th:src="@{/bootstrap/webadmi/frmcliente.js}" type="text/javascript"></script>
+<nav th:replace="~{layout::nav}"></nav>
+<main>
+
+    <table class="table">
+        <thead>
+        <h3 style="text-align:center">Mantemiento Cliente</h3>
+        </thead>
+        <tbody>
+        <tr class="parrafos">
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>
+            <th scope="col"> Telefono</th>
+            <th scope="col"></th>
+        </tr>
+        <tr th:each="pac:${list}">
+            <th scope="row"  th:text="${pac.cod}"></th>
+            <td th:text="${pac.nom}"></td>
+            <td th:text="${pac.apell}"></td>
+            <td th:text="${pac.edad}"></td>
+            <td th:text="${pac.tele}"></td>
+            <td>
+                <button type="button" id="btnactualizar" class="btn btn-primary"
+                        th:data-id="${pac.cod}"
+                        th:data-nombre="${pac.nom}"
+                        th:data-apellido="${pac.apell}"
+                        th:data-edad="${pac.edad}"
+                        th:data-tele="${pac.tele}"
+                ><i class="bi bi-floppy"></i></button>
+                <button type="button" id="btneliminar" class="btn btn-danger"
+                        th:data-id="${pac.cod}"
+                        th:data-nombre="${pac.nom}"
+                        th:data-apellido="${pac.apell}"
+                        th:data-edad="${pac.edad}"
+                        th:data-tele="${pac.tele}"
+                ><i class="bi bi-trash"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="btnnuevo" type="button" class="btn btn-primary">Nuevo<i class="bi bi-person-plus"></i></button>
+            </td>
+
+        </tr>
+
+
+        </tbody>
+    </table>
+
+</main>
+
+
+</body>
+
+
+<!-- Modal -->
+<div  class="modal fade" id="modalregistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mantenimiento Cliente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="txtnombre" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="txtnombre">
+                    <input type="text" value="0" id="txtcodigo">
+                </div>
+                <div class="mb-3">
+                    <label for="txtapellido" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="txtapellido">
+                </div>
+                <div class="mb-3">
+                    <label for="txtedad" class="form-label">Edad</label>
+                    <input type="text" class="form-control" id="txtedad">
+                </div>
+                <div class="mb-3">
+                    <label for="txttelefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="txttelefono">
+                </div>
+
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Cerrar</button>
+                <button id="btnregistrar" type="button" class="btn btn-primary">
+                    <i class="bi bi-floppy-fill"></i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</html>

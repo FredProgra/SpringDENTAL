@@ -1,0 +1,13 @@
+.head-footer h3{
+
+text-align: center;
+}
+footer{
+background: rgb(82,208,233);
+background: linear-gradient(180deg, rgba(82,208,233,1) 41%, rgba(41,227,246,1) 72%);
+}
+.parrafos{
+background: rgb(80,222,250);
+background: linear-gradient(117deg, rgba(80,222,250,1) 9%, rgba(114,233,245,1) 59%, rgba(222,245,247,1) 73%);
+}
+
